@@ -19,8 +19,10 @@ export default function WeatherBanner() {
                 const result = await response.json();
 
                 // List of Weather Conditions - https://www.weatherapi.com/docs/weather_conditions.json
-                let testCondition = "Possible thunder today";
+                
+                // let thisCondition = "snow";
                 let thisCondition = result.current.condition.text;
+                
                 let conditionArray = thisCondition.split(" ");
                 let newConditionArray = conditionArray.map((item) => item.toLowerCase());
                 const weatherCategories = {
@@ -69,7 +71,6 @@ export default function WeatherBanner() {
     }, []);
 
     return (
-        // <div className="flex flex-col md:flex-row gap-4 rounded-lg bg-gray-100 p-6 my-6 bg-gradient-to-r from-yellow-500 to-orange-500">
         <div className={clsx("flex flex-col md:flex-row gap-4 rounded-lg bg-gray-100 p-6 my-6 bg-gradient-to-r from-yellow-500 to-orange-500", { "bg-gradient-to-r from-teal-500 to-purple-500": temp <= 32  || condition == "rainy" || condition == "snowy" }, { "bg-gradient-to-r from-yellow-500 to-gray-800": condition == "thunder" })}>
             <div>
                 <SunIcon className={clsx("w-full text-white block", { "hidden": condition != "sunny" })} />

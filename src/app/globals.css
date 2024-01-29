@@ -3,43 +3,81 @@
 @tailwind utilities;
 
 :root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
+    --foreground-rgb: 0, 0, 0;
+    --background-start-rgb: 214, 219, 220;
+    --background-end-rgb: 255, 255, 255;
 }
 
+/* DARK MODE */
 @media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
-  }
+    :root {
+        --foreground-rgb: 255, 255, 255;
+        --background-start-rgb: 0, 0, 0;
+        --background-end-rgb: 0, 0, 0;
+    }
 }
 
+/* GLOBAL STYLES */
 body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+    color: rgb(var(--foreground-rgb));
+    background: linear-gradient(to bottom,
+            transparent,
+            rgb(var(--background-end-rgb))) rgb(var(--background-start-rgb));
 }
 
 h1 {
     font-size: 2rem;
     font-weight: bold;
 }
+
 h2 {
     font-size: 1.5rem;
     color: #000;
 }
+
 h3 {
     font-size: 1.25rem;
 }
+
 p {
     line-height: 2rem;
 }
+
 .hover-all-white:hover h2 {
     color: white;
+}
+
+/* ANIMATIONS */
+.fade-up {
+    animation: fadeUp 750ms ease-out forwards;
+    opacity: 0;
+}
+
+@keyframes fadeUp {
+    from {
+        transform: translateY(30px);
+        opacity: 0;
+    }
+
+    to {
+        transform: translateY(0px);
+        opacity: 1;
+    }
+}
+
+/* ANIMATION UTILITIES */
+.delay-animation-1 {
+    animation-delay: 1s;
+}
+.delay-animation-2 {
+    animation-delay: 2s;
+}
+.delay-animation-3 {
+    animation-delay: 3s;
+}
+.delay-animation-4 {
+    animation-delay: 4s;
+}
+.delay-animation-5 {
+    animation-delay: 5s;
 }
